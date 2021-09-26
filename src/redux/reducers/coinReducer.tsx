@@ -1,5 +1,7 @@
 export const ADD_COIN = 'ADD_COIN';
 
+// coin is used for easier test for empty results
+//ToDo: rewrite in future
 const initialState = {
   coin: {}
 };

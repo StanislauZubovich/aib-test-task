@@ -1,4 +1,11 @@
 # CMOM Technical Test
-ToDo: Update lorem ipsum
-Run "npm run dev" for development build
-Run "npm run test" for tests
+## Running locally
+- `git clone` this repo
+- `npm install`
+- Run `npm run dev`. This will fire up Webpack and rebuild your app on each change.
+- `open http://localhost:8080` to view to the app.
+
+## Tests
+Run `npm test` to run the tests with Jest.
+
+Run `npm test -- --watch` to run Jest and have it automatically rerun everytime you change a file.
