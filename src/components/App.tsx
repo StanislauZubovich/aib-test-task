@@ -11,16 +11,18 @@ const App = () => {
   return (
     <div className="wrapper">
       <Header/>
-      <Router>
-        <Switch>
-          <Route exact path="/">
-            <MarketsList />
-          </Route>
-          <Route path="/coin/:coinId">
-            <CoinList/>
-          </Route>
-        </Switch>
-      </Router>
+      <main>
+        <Router>
+          <Switch>
+            <Route exact path="/">
+              <MarketsList />
+            </Route>
+            <Route path="/coin/:coinId">
+              <CoinList/>
+            </Route>
+          </Switch>
+        </Router>
+      </main>
     </div>
   );
 };
