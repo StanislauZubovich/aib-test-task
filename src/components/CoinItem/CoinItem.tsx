@@ -1,32 +1,38 @@
 import PropTypes from 'prop-types';
+import { coinData } from '../../mocks/data';
 
 export const CoinItem = props => {
   const { name, symbol, hashing_algorithm, description, market_data, links, genesis_date } = props;
   console.log(props)
   return (
-    <div data-testid="card" className="cards__column">
-      <div className="card">
-        <div className="card__container">
-          <span className="card__price">{name}</span>
-          <span className="card__price">{symbol}</span>
-          <span className="card__price">{hashing_algorithm}</span>
-          <span className="card__price">{description.en}</span>
-          <span className="card__price">{market_data.market_cap.eur}</span>
-          <span className="card__price">{links.homepage[0]}</span>
-          <span className="card__price">{genesis_date}</span>
+    <article className="coin">
+      <div className="coin__container">
+        <div className="coin__header">
+          <h3 className="coin__title">{name} <span className="coin__title--subtitle">{symbol}</span></h3>
+        </div>
+        <div className="coin__main">
+          <p className="card__info"><a href={links.homepage[0]}>{coinData.HomepageLinkLabel}</a></p>
+          <p className="card__info">{coinData.marketCapLabel}{market_data.market_cap.eur}</p>
+          <p className="card__info" dangerouslySetInnerHTML={{__html:description.en}}></p>
+          {hashing_algorithm && 
+            <p className="card__info">{coinData.hashAlgorithmLabel}{hashing_algorithm}</p>
+          }
+          {genesis_date && 
+            <p className="card__info">{coinData.genesisDataLabel}{genesis_date}</p>
+          }
         </div>
       </div>
-    </div>
+    </article>
   );
 };
 
 CoinItem.propTypes = {
-  name: PropTypes.string,
-  symbol: PropTypes.string,
+  name: PropTypes.string.isRequired,
+  symbol: PropTypes.string.isRequired,
   hashing_algorithm: PropTypes.string,
   description: PropTypes.object,
-  market_data: PropTypes.object,
-  links: PropTypes.object,
+  market_data: PropTypes.object.isRequired,
+  links: PropTypes.object.isRequired,
   genesis_date: PropTypes.string,
 };
 

@@ -33,8 +33,12 @@ module.exports = {
         use: ["ts-loader"],
       },
       {
-        test: /\.(css|scss)$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader"],
+        test: /\.css$/i,
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+      },
+      {
+        test: /\.s[ac]ss$/i,
+        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
       },
       {
         test: /\.(jpg|jpeg|png|gif|mp3|svg)$/,

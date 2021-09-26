@@ -1,4 +1,4 @@
-
+import Header from "./Header/Header";
 import MarketsList from "./MarketsList/MarketsList";
 import CoinList from "./CoinList/CoinList";
 import {
@@ -10,6 +10,7 @@ import {
 const App = () => {
   return (
     <div className="wrapper">
+      <Header/>
       <Router>
         <Switch>
           <Route exact path="/">

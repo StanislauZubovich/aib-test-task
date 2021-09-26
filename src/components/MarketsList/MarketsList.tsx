@@ -14,13 +14,13 @@ export const MarketList = () => {
   }, []);
 
   return (
-    <div data-testid="markets-list">
+    <section className="markets-list">
       {markets.length && markets.map(item => (
           <MarketItem {...item} key={item.id} />
         ))
       }
       {isLoading && <Loader />}
-    </div>
+    </section>
   );
 };
 

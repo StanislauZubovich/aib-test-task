@@ -1,10 +1,9 @@
-import { useEffect, useState} from 'react';
+import { useEffect } from 'react';
 import { useParams } from "react-router-dom";
 import { useDispatch, useSelector, RootStateOrAny } from 'react-redux';
 import { fetchCoin } from '../../redux/asyncActions/fetchCoin';
 import Loader from "../Loader/Loader";
 import CoinItem from "../CoinItem/CoinItem";
-import { collapseTextChangeRangesAcrossMultipleVersions } from 'typescript';
 
 export const CoinList = () => {
   const { coinId } = useParams();
@@ -17,11 +16,9 @@ export const CoinList = () => {
   }, []);
 
   return (
-    <div data-testid="coin-list">
+    <div className="coin-list">
       {Object.keys(coinData.coin).length && (
-        <div className="blah">
-          <CoinItem {...coinData.coin} key={coinData.id} />
-        </div>
+        <CoinItem {...coinData.coin} key={coinData.id} />
       )}
       {isLoading && <Loader />}
     </div>

@@ -1,26 +1,25 @@
 import PropTypes from 'prop-types';
+import { cardsData } from '../../mocks/data';
 
 export const MarketItem = props => {
   const { id, image, name, symbol, current_price, high_24h, low_24h } = props;
 
   return (
-    <div data-testid="card" className="cards__column">
-      <div className="card">
-        <div className="card__image">
-          <a href={`/coin/${id}`}>
-            <img src={image} alt={name} width="50" height="50" />
-          </a>
+    <article className="card">
+      <a href={`/coin/${id}`} className="card__container">
+        <div className="card__image" >
+          <img src={image} alt={name} width="50" height="50" />
         </div>
-        <div className="card__content">
-          <h3 className="card__title">{name} {symbol}</h3>
+        <div className="card__header">
+          <h3 className="card__title">{name} <span className="card__title--subtitle">{symbol}</span></h3>
         </div>
-        <div className="card__container">
-          <span className="card__price">{current_price}</span>
-          <span className="card__price">{high_24h}</span>
-          <span className="card__price">{low_24h}</span>
+        <div className="card__main">
+          <span className="card__price"><span className="card__price--label">{cardsData.currentPriceLabel}</span>{current_price}</span>
+          <span className="card__price"><span className="card__price--label">{cardsData.high24Label}</span>{high_24h}</span>
+          <span className="card__price"><span className="card__price--label">{cardsData.low24Label}</span>{low_24h}</span>
         </div>
-      </div>
-    </div>
+      </a>
+    </article>
   );
 };
 
