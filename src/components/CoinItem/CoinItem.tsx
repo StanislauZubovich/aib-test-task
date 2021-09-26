@@ -11,7 +11,7 @@ export const CoinItem = props => {
           <h3 className="coin__title">{name} <span className="coin__title--subtitle">{symbol}</span></h3>
         </div>
         <div className="coin__main">
-          <p className="card__info"><a href={links.homepage[0]}>{coinData.HomepageLinkLabel}</a></p>
+          <p className="card__info"><a href={links.homepage[0]} target="blank">{coinData.HomepageLinkLabel}</a></p>
           <p className="card__info">{coinData.marketCapLabel}{market_data.market_cap.eur}</p>
           <p className="card__info" dangerouslySetInnerHTML={{__html:description.en}}></p>
           {hashing_algorithm && 
