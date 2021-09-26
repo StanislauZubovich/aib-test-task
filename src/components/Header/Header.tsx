@@ -1,3 +1,4 @@
+import React from 'react';
 import { headerData } from "../../mocks/data";
 
 export const Header = () => {

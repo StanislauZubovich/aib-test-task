@@ -1,9 +1,9 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import { coinData } from '../../mocks/data';
 
 export const CoinItem = props => {
   const { name, symbol, hashing_algorithm, description, market_data, links, genesis_date } = props;
-  console.log(props)
   return (
     <article className="coin">
       <div className="coin__container">

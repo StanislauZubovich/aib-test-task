@@ -1,3 +1,4 @@
+import React from 'react';
 import Header from "./Header/Header";
 import MarketsList from "./MarketsList/MarketsList";
 import CoinList from "./CoinList/CoinList";

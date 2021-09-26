@@ -5,7 +5,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 
 const esLintPlugin = isDev =>
-  isDev ? [] : [new ESLintPlugin({extensions: ['js']})];
+  isDev ? [] : [new ESLintPlugin({extensions: ['js, tsx, ts']})];
 
 module.exports = {
   entry: "./src/index.tsx",
@@ -47,7 +47,7 @@ module.exports = {
     ],
   },
   plugins: [
-    new ESLintPlugin({extensions: ['js']}),
+    new ESLintPlugin({extensions: ['js, tsx, ts']}),
     new HtmlWebpackPlugin({
       template: path.join(__dirname, "src", "index.html"),
     }),
