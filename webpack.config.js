@@ -14,7 +14,12 @@ module.exports = {
   resolve: {
     extensions: [".tsx", ".ts", ".js"],
   },
-  devServer: { contentBase: path.join(__dirname, "src") },
+  devtool: "eval-cheap-source-map",
+  devServer: {
+    historyApiFallback: true,
+    contentBase: path.join(__dirname, "src"),
+    hot: true
+  },
   module: {
     rules: [
       {
