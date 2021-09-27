@@ -5,7 +5,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const ESLintPlugin = require('eslint-webpack-plugin');
 
 const esLintPlugin = isDev =>
-  isDev ? [] : [new ESLintPlugin({extensions: ['js']})];
+  isDev ? [] : [new ESLintPlugin({extensions: ['js, tsx, ts']})];
 
 module.exports = {
   entry: "./src/index.tsx",
@@ -14,7 +14,12 @@ module.exports = {
   resolve: {
     extensions: [".tsx", ".ts", ".js"],
   },
-  devServer: { contentBase: path.join(__dirname, "src") },
+  devtool: "eval-cheap-source-map",
+  devServer: {
+    historyApiFallback: true,
+    contentBase: path.join(__dirname, "src"),
+    hot: true
+  },
   module: {
     rules: [
       {
@@ -28,8 +33,12 @@ module.exports = {
         use: ["ts-loader"],
       },
       {
-        test: /\.(css|scss)$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader"],
+        test: /\.css$/i,
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
+      },
+      {
+        test: /\.s[ac]ss$/i,
+        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
       },
       {
         test: /\.(jpg|jpeg|png|gif|mp3|svg)$/,
@@ -38,7 +47,7 @@ module.exports = {
     ],
   },
   plugins: [
-    new ESLintPlugin({extensions: ['js']}),
+    new ESLintPlugin({extensions: ['js, tsx, ts']}),
     new HtmlWebpackPlugin({
       template: path.join(__dirname, "src", "index.html"),
     }),
